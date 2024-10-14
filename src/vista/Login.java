@@ -4,7 +4,10 @@
  */
 package vista;
 
+import controlador.Ctrl_Usuario;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 public class Login extends javax.swing.JFrame {
 
@@ -13,6 +16,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setTitle("Login - Inversiones El Costeño 2023");
     }
 
     
@@ -25,7 +29,7 @@ public class Login extends javax.swing.JFrame {
         User = new javax.swing.JLabel();
         Passwd = new javax.swing.JLabel();
         UserTextField = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         Header = new javax.swing.JPanel();
@@ -48,27 +52,38 @@ public class Login extends javax.swing.JFrame {
 
         User.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         User.setText("Usuario");
-        Fondo.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        Fondo.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         Passwd.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         Passwd.setText("Contraseña");
-        Fondo.add(Passwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        Fondo.add(Passwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
-        UserTextField.setForeground(new java.awt.Color(153, 153, 153));
+        UserTextField.setForeground(java.awt.Color.gray);
         UserTextField.setText("Ingrese su nombre de usuario");
         UserTextField.setBorder(null);
-        Fondo.add(UserTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 180, -1));
-
-        jPasswordField1.setText("ingrese su contraseña");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+        UserTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                UserTextFieldMousePressed(evt);
             }
         });
-        Fondo.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 180, -1));
-        Fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 180, 10));
-        Fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 180, 10));
+        Fondo.add(UserTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 180, -1));
+
+        jPasswordField.setForeground(java.awt.Color.gray);
+        jPasswordField.setText("********");
+        jPasswordField.setBorder(null);
+        jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPasswordFieldMousePressed(evt);
+            }
+        });
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
+        Fondo.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, -1));
+        Fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 180, 10));
+        Fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 180, 10));
 
         Header.setBackground(new java.awt.Color(255, 255, 255));
         Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -135,6 +150,9 @@ public class Login extends javax.swing.JFrame {
 
         ButtonLogin.setBackground(new java.awt.Color(104, 208, 232));
         ButtonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonLoginMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonLoginMouseEntered(evt);
             }
@@ -164,7 +182,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Fondo.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 160, 30));
+        Fondo.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 160, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,9 +200,9 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
 
     private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
         xMouse = evt.getX();
@@ -219,6 +237,35 @@ public class Login extends javax.swing.JFrame {
         ButtonLogin.setBackground(new Color(104, 208, 232));
     }//GEN-LAST:event_ButtonLoginMouseExited
 
+    private void UserTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserTextFieldMousePressed
+       if (UserTextField.getText().equals("Ingrese su nombre de usuario")) {
+        UserTextField.setText("");
+        UserTextField.setForeground(Color.black);
+       }
+       
+       if(String.valueOf(jPasswordField.getPassword()).isEmpty()){
+        jPasswordField.setText("********");
+        jPasswordField.setForeground(Color.gray);
+       }
+    }//GEN-LAST:event_UserTextFieldMousePressed
+
+    private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
+        
+        if(String.valueOf(jPasswordField.getPassword()).equals("********")){
+        jPasswordField.setText("");
+        jPasswordField.setForeground(Color.black);
+        }
+        
+         if (UserTextField.getText().isEmpty()) {
+        UserTextField.setText("Ingrese su nombre de usuario");
+        UserTextField.setForeground(Color.gray);
+         } 
+    }//GEN-LAST:event_jPasswordFieldMousePressed
+
+    private void ButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseClicked
+        this.Login();
+    }//GEN-LAST:event_ButtonLoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +299,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -265,8 +313,31 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Photo;
     private javax.swing.JLabel User;
     private javax.swing.JTextField UserTextField;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+
+        //
+        private void Login(){
+           
+            if(!UserTextField.getText().isEmpty() && !jPasswordField.getText().isEmpty()){
+                
+                Ctrl_Usuario controlUsuario = new Ctrl_Usuario();
+                Usuario usuario = new Usuario();
+                usuario.setUsuario(UserTextField.getText().trim());
+                usuario.setPassword(jPasswordField.getText().trim());
+                
+                 if(controlUsuario.loginUser(usuario)){
+                      JOptionPane.showMessageDialog(null, "Login Correcto");
+                 }else{
+                     JOptionPane.showMessageDialog(null, "Usuario o Clave incorrectos");
+                 }
+                   
+            }else{
+                JOptionPane.showMessageDialog(null, "Ingrese sus credenciales");
+                
+            }
+        }
 }
+
