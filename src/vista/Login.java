@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
         Header = new modelo.JpanelRound();
         ExitButton = new modelo.JpanelRound();
         ExitTxt = new javax.swing.JLabel();
-        ButtonLogin = new javax.swing.JPanel();
+        ButtonLogin = new modelo.JpanelRound();
         ButtonLoginTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,10 +46,10 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
 
         jpanelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        jpanelRound1.setRoundBottomLeft(50);
-        jpanelRound1.setRoundBottomRight(50);
-        jpanelRound1.setRoundTopLeft(50);
-        jpanelRound1.setRoundTopRight(50);
+        jpanelRound1.setRoundBottomLeft(40);
+        jpanelRound1.setRoundBottomRight(40);
+        jpanelRound1.setRoundTopLeft(40);
+        jpanelRound1.setRoundTopRight(40);
         jpanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user1.png"))); // NOI18N
@@ -57,11 +57,11 @@ public class Login extends javax.swing.JFrame {
 
         User.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         User.setText("Usuario");
-        jpanelRound1.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+        jpanelRound1.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
         Passwd.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         Passwd.setText("Contraseña");
-        jpanelRound1.add(Passwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+        jpanelRound1.add(Passwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
         UserTextField.setForeground(java.awt.Color.gray);
         UserTextField.setText("Ingrese su nombre de usuario");
@@ -71,7 +71,7 @@ public class Login extends javax.swing.JFrame {
                 UserTextFieldMousePressed(evt);
             }
         });
-        jpanelRound1.add(UserTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 180, -1));
+        jpanelRound1.add(UserTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 180, -1));
 
         jPasswordField.setForeground(java.awt.Color.gray);
         jPasswordField.setText("********");
@@ -81,9 +81,9 @@ public class Login extends javax.swing.JFrame {
                 jPasswordFieldMousePressed(evt);
             }
         });
-        jpanelRound1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 180, -1));
-        jpanelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 180, 10));
-        jpanelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 180, 10));
+        jpanelRound1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 180, -1));
+        jpanelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 180, 10));
+        jpanelRound1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 180, 10));
 
         Header.setBackground(new java.awt.Color(255, 255, 255));
         Header.setMinimumSize(new java.awt.Dimension(430, 40));
@@ -154,6 +154,10 @@ public class Login extends javax.swing.JFrame {
         jpanelRound1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         ButtonLogin.setBackground(new java.awt.Color(104, 208, 232));
+        ButtonLogin.setRoundBottomLeft(16);
+        ButtonLogin.setRoundBottomRight(16);
+        ButtonLogin.setRoundTopLeft(16);
+        ButtonLogin.setRoundTopRight(16);
         ButtonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonLoginMouseClicked(evt);
@@ -169,25 +173,30 @@ public class Login extends javax.swing.JFrame {
         ButtonLoginTxt.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         ButtonLoginTxt.setForeground(new java.awt.Color(255, 255, 255));
         ButtonLoginTxt.setText("Ingresar");
+        ButtonLoginTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout ButtonLoginLayout = new javax.swing.GroupLayout(ButtonLogin);
         ButtonLogin.setLayout(ButtonLoginLayout);
         ButtonLoginLayout.setHorizontalGroup(
             ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonLoginLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(ButtonLoginTxt)
-                .addGap(55, 55, 55))
+            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonLoginLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(ButtonLoginTxt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         ButtonLoginLayout.setVerticalGroup(
             ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonLoginLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(ButtonLoginTxt)
-                .addContainerGap())
+            .addGap(0, 31, Short.MAX_VALUE)
+            .addGroup(ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonLoginLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(ButtonLoginTxt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jpanelRound1.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 160, 30));
+        jpanelRound1.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,14 +228,6 @@ public class Login extends javax.swing.JFrame {
        ExitTxt.setForeground(Color.black);
     }//GEN-LAST:event_ExitTxtMouseExited
 
-    private void ButtonLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseEntered
-       ButtonLogin.setBackground(new Color(53, 162, 221));
-    }//GEN-LAST:event_ButtonLoginMouseEntered
-
-    private void ButtonLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseExited
-        ButtonLogin.setBackground(new Color(104, 208, 232));
-    }//GEN-LAST:event_ButtonLoginMouseExited
-
     private void UserTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserTextFieldMousePressed
        if (UserTextField.getText().equals("Ingrese su nombre de usuario")) {
         UserTextField.setText("");
@@ -238,10 +239,6 @@ public class Login extends javax.swing.JFrame {
         jPasswordField.setForeground(Color.gray);
        }
     }//GEN-LAST:event_UserTextFieldMousePressed
-
-    private void ButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseClicked
-        this.Login();
-    }//GEN-LAST:event_ButtonLoginMouseClicked
 
     private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
         xMouse = evt.getX();
@@ -265,6 +262,18 @@ public class Login extends javax.swing.JFrame {
         UserTextField.setForeground(Color.gray);
          } 
     }//GEN-LAST:event_jPasswordFieldMousePressed
+
+    private void ButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseClicked
+        this.Login();
+    }//GEN-LAST:event_ButtonLoginMouseClicked
+
+    private void ButtonLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseEntered
+        ButtonLogin.setBackground(new Color(53, 162, 221));
+    }//GEN-LAST:event_ButtonLoginMouseEntered
+
+    private void ButtonLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseExited
+        ButtonLogin.setBackground(new Color(104, 208, 232));
+    }//GEN-LAST:event_ButtonLoginMouseExited
 
     /**
      * @param args the command line arguments
@@ -303,7 +312,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ButtonLogin;
+    private modelo.JpanelRound ButtonLogin;
     private javax.swing.JLabel ButtonLoginTxt;
     private modelo.JpanelRound ExitButton;
     private javax.swing.JLabel ExitTxt;
@@ -326,7 +335,7 @@ public class Login extends javax.swing.JFrame {
                 Ctrl_Usuario controlUsuario = new Ctrl_Usuario();
                 Usuario usuario = new Usuario();
                 usuario.setUsuario(UserTextField.getText().trim());
-                usuario.setPassword(jPasswordField.getText().trim());
+                usuario.setPass(jPasswordField.getText().trim());
                 
                  if(controlUsuario.loginUser(usuario)){
                       JOptionPane.showMessageDialog(null, "Login Correcto");

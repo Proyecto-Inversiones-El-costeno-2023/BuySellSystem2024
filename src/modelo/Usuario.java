@@ -18,7 +18,7 @@ public class Usuario {
     private String correo;
     private String TipoUsuario;
     private String usuario;
-    private String password;
+    private String pass;
     private int estado;
 
     //Constructor
@@ -31,7 +31,7 @@ public class Usuario {
         this.correo = "";
         this.TipoUsuario = "";
         this.usuario = "";
-        this.password = "";
+        this.pass = "";
         this.estado = 0;
     }
     
@@ -101,12 +101,12 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public int getEstado() {
@@ -116,4 +116,6 @@ public class Usuario {
     public void setEstado(int estado) {
         this.estado = estado;
     }
+
+    
 }
