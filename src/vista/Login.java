@@ -6,6 +6,8 @@ package vista;
 
 import controlador.Ctrl_Usuario;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
@@ -19,6 +21,12 @@ public class Login extends javax.swing.JFrame {
         this.setBackground(new Color(0, 0, 0, 0));
         this.setTitle("Login - Inversiones El Costeño 2023");
     }
+    
+    @Override
+    public Image getIconImage(){
+    Image retValue = Toolkit .getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/iconimage.png"));
+    return retValue;
+}
 
     
     @SuppressWarnings("unchecked")
@@ -41,6 +49,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 102));
+        setIconImage(getIconImage());
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
@@ -52,8 +61,8 @@ public class Login extends javax.swing.JFrame {
         jpanelRound1.setRoundTopRight(40);
         jpanelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user1.png"))); // NOI18N
-        jpanelRound1.add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, 130));
+        Photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LogoEmpresa.png"))); // NOI18N
+        jpanelRound1.add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 170, 140));
 
         User.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         User.setText("Usuario");
@@ -71,6 +80,11 @@ public class Login extends javax.swing.JFrame {
                 UserTextFieldMousePressed(evt);
             }
         });
+        UserTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UserTextFieldKeyPressed(evt);
+            }
+        });
         jpanelRound1.add(UserTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 180, -1));
 
         jPasswordField.setForeground(java.awt.Color.gray);
@@ -79,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPasswordFieldMousePressed(evt);
+            }
+        });
+        jPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyPressed(evt);
             }
         });
         jpanelRound1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 180, -1));
@@ -274,6 +293,27 @@ public class Login extends javax.swing.JFrame {
     private void ButtonLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseExited
         ButtonLogin.setBackground(new Color(104, 208, 232));
     }//GEN-LAST:event_ButtonLoginMouseExited
+
+    private void UserTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserTextFieldKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            if(String.valueOf(jPasswordField.getPassword()).equals("********")){
+        jPasswordField.setText("");
+        jPasswordField.setForeground(Color.black);
+        }
+        
+         if (UserTextField.getText().isEmpty()) {
+        UserTextField.setText("Ingrese su nombre de usuario");
+        UserTextField.setForeground(Color.gray);
+         } 
+            jPasswordField.requestFocus();
+        }
+    }//GEN-LAST:event_UserTextFieldKeyPressed
+
+    private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            this.Login();
+        }
+    }//GEN-LAST:event_jPasswordFieldKeyPressed
 
     /**
      * @param args the command line arguments
