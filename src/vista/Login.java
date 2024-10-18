@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
 import modelo.Usuario;
 
 public class Login extends javax.swing.JFrame {
@@ -172,7 +173,7 @@ public class Login extends javax.swing.JFrame {
 
         jpanelRound1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        ButtonLogin.setBackground(new java.awt.Color(104, 208, 232));
+        ButtonLogin.setBackground(new java.awt.Color(3, 150, 166));
         ButtonLogin.setRoundBottomLeft(16);
         ButtonLogin.setRoundBottomRight(16);
         ButtonLogin.setRoundTopLeft(16);
@@ -287,15 +288,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonLoginMouseClicked
 
     private void ButtonLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseEntered
-        ButtonLogin.setBackground(new Color(53, 162, 221));
+        ButtonLogin.setBackground(new Color(11, 105, 139));
     }//GEN-LAST:event_ButtonLoginMouseEntered
 
     private void ButtonLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLoginMouseExited
-        ButtonLogin.setBackground(new Color(104, 208, 232));
+        ButtonLogin.setBackground(new Color(3, 150, 166));
     }//GEN-LAST:event_ButtonLoginMouseExited
 
     private void UserTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserTextFieldKeyPressed
-        if(evt.getKeyCode() == evt.VK_ENTER){
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             if(String.valueOf(jPasswordField.getPassword()).equals("********")){
         jPasswordField.setText("");
         jPasswordField.setForeground(Color.black);
@@ -310,7 +311,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_UserTextFieldKeyPressed
 
     private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
-        if(evt.getKeyCode() == evt.VK_ENTER){
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             this.Login();
         }
     }//GEN-LAST:event_jPasswordFieldKeyPressed

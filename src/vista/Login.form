@@ -247,7 +247,7 @@
         <Container class="modelo.JpanelRound" name="ButtonLogin">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e8" green="d0" red="68" type="rgb"/>
+              <Color blue="a6" green="96" red="3" type="rgb"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="16"/>
             <Property name="roundBottomRight" type="int" value="16"/>
