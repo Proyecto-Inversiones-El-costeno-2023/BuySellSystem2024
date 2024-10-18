@@ -379,6 +379,9 @@ public class Login extends javax.swing.JFrame {
                 
                  if(controlUsuario.loginUser(usuario)){
                       JOptionPane.showMessageDialog(null, "Login Correcto");
+                      MenuAdmin menu = new MenuAdmin();
+                      menu.setVisible(true);
+                      this.dispose();
                  }else{
                      JOptionPane.showMessageDialog(null, "Usuario o Clave incorrectos");
                  }
