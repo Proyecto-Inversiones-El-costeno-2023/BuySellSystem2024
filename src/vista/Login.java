@@ -7,6 +7,7 @@ package vista;
 import controlador.Ctrl_Usuario;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.KeyboardFocusManager;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
@@ -21,6 +22,13 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(0, 0, 0, 0));
         this.setTitle("Login - Inversiones El Costeño 2023");
+        
+        UserTextField.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+                java.util.Collections.EMPTY_SET);
+        
+        jPasswordField.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+                java.util.Collections.EMPTY_SET);
+        
     }
     
     @Override
@@ -192,28 +200,18 @@ public class Login extends javax.swing.JFrame {
 
         ButtonLoginTxt.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         ButtonLoginTxt.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonLoginTxt.setText("Ingresar");
+        ButtonLoginTxt.setText("                  Ingresar");
         ButtonLoginTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout ButtonLoginLayout = new javax.swing.GroupLayout(ButtonLogin);
         ButtonLogin.setLayout(ButtonLoginLayout);
         ButtonLoginLayout.setHorizontalGroup(
             ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-            .addGroup(ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonLoginLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ButtonLoginTxt)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(ButtonLoginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
         );
         ButtonLoginLayout.setVerticalGroup(
             ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-            .addGroup(ButtonLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonLoginLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ButtonLoginTxt)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(ButtonLoginTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         jpanelRound1.add(ButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
@@ -296,7 +294,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonLoginMouseExited
 
     private void UserTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserTextFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER || evt.getKeyCode() == KeyEvent.VK_TAB){
             if(String.valueOf(jPasswordField.getPassword()).equals("********")){
         jPasswordField.setText("");
         jPasswordField.setForeground(Color.black);
@@ -313,6 +311,20 @@ public class Login extends javax.swing.JFrame {
     private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             this.Login();
+        }
+        
+        if(evt.getKeyCode() == KeyEvent.VK_TAB){
+            
+       if (UserTextField.getText().equals("Ingrese su nombre de usuario")) {
+        UserTextField.setText("");
+        UserTextField.setForeground(Color.black);
+       }
+       
+       if(String.valueOf(jPasswordField.getPassword()).isEmpty()){
+        jPasswordField.setText("********");
+        jPasswordField.setForeground(Color.gray);
+       }
+            UserTextField.requestFocus();
         }
     }//GEN-LAST:event_jPasswordFieldKeyPressed
 

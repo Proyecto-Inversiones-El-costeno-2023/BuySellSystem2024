@@ -404,6 +404,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         Menu.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 30));
 
+        Contenedor.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
         ContenedorLayout.setHorizontalGroup(
