@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
     
     @Override
     public Image getIconImage(){
-    Image retValue = Toolkit .getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/iconimage.png"));
+    Image retValue = Toolkit .getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/iconlogin.png"));
     return retValue;
 }
 
